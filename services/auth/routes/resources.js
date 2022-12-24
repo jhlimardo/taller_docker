@@ -6,6 +6,7 @@ let router = express.Router();
 
 router.route('/users/:id?')
     .get(UserController.get)
-    .post(UserController.store);
+    .post(UserController.store)
+    .delete(UserController.delete);
 
 export default router;
