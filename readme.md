@@ -53,7 +53,7 @@ curl -X DELETE http://localhost:8080/v1/auth/resources/users/:id  --header "Cont
 
 Author: Joseph
 
-### Create a new User 
+### Modify User 
 curl -X PUT http://localhost:8080/v1/auth/resources/users/:id  --header "Content-Type: application/json" --data '{ "email" : "test@email.com" , "name" : "Jose", "lastName": "Limardo", "password" : "123456"}'
 
 Author: Jose Limardo
