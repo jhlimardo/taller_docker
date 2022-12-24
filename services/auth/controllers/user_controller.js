@@ -12,6 +12,7 @@ let controller =   {
         try{
             console.log(req.body)
             if (!req.body.password) return res.status(400).send({message: 'NO_PASSWORD', code: "102.1"});
+            if (!req.body.email) return res.status(400).send({message: 'NO_EMAIL', code: "102.1"});
             let data = req.body;
             data.password =  await bcrypt.hash(req.body.password,salt);
             let userStored = await UserModel.create(data);
