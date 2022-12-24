@@ -40,7 +40,7 @@ curl -X POST http://localhost:8080/v1/transaction/resources/assets  --header "Co
 -----
 Author Dimar Borda
 
------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 # Taller
 
 ### Create a new User 
@@ -56,4 +56,6 @@ Author: Joseph
 ### Modify User 
 curl -X PUT http://localhost:8080/v1/auth/resources/users/:id  --header "Content-Type: application/json" --data '{ "email" : "test@email.com" , "name" : "Jose", "lastName": "Limardo", "password" : "123456"}'
 
-Author: Jose Limardo
+### Get Users
+curl -X GET http://localhost:8080/v1/auth/resources/users/  --header "Content-Type: application/json"
+
