@@ -16,7 +16,7 @@ curl -X GET http://localhost:8080/v1/auth/public/healthcheck
 ### RestFull Resources:
 
 - Create User Account
-curl -X POST http://localhost:8080/v1/auth/resources/users --header "Content-Type: application/json"   --data '{ "email" : "test@email.com" , "organization" : "Lazaro", "password" : "1234"}'
+curl -X POST http://localhost:8080/v1/auth/resources/users --header "Content-Type: application/json" --data '{ "email" : "test@email.com" , "name" : "Gato", "lastName": "Gris", "password" : "1234"}'
 
 
 ### Other Rest endpoints:
