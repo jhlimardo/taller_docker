@@ -8,6 +8,7 @@ let controller = {
         let users = await UserModel.find();
         return res.status(200).send({ data: users });
     },
+
     store: async (req, res) => {
         try {
             if (req.params.id) {
@@ -33,6 +34,18 @@ let controller = {
 
     },
 
+    delete: async (req, res) => {
+        try {
+            console.log('Eliminando Usuario');
+            let deleteItem = await UserModel.deleteOne({ _id: req.params.id });
+            if (!deleteItem) return res.status(400).send({ error: "USER_HAS_NOT_BEEN_DELETED", code: 379 });
+            return res.status(200).send({ data: "USER_HAS_BEEN_REMOVED" });
+        } catch (error) {
+            console.log(error);
+            return res.status(500).send({ error: "DELETE ERROR CATCH LOT", message: error.message, code: "600.500" })
+        }
+    },
+
     login: async (req, res) => {
         if (!req.body.password) return res.status(400).send({ message: 'NO_PASSWORD', code: "103.1" });
         if (!req.body.email) return res.status(400).send({ message: 'NO_EMAIL', code: "103.2" });
@@ -46,19 +59,7 @@ let controller = {
                 return res.status(401).send({ message: 'NO_AUTHORIZATION', code: "103.4" });
             }
         });
-    },
-
-    delete: async (req, res) => {
-        try {
-            console.log('Eliminando Usuario');
-            let deleteItem = await UserModel.deleteOne({ _id: req.params.id });
-            if (!deleteItem) return res.status(400).send({ error: "USER_HAS_NOT_BEEN_DELETED", code: 379 });
-            return res.status(200).send({ data: "USER_HAS_BEEN_REMOVED" });
-        } catch (error) {
-            console.log(error);
-            return res.status(500).send({ error: "DELETE ERROR CATCH LOT", message: error.message, code: "600.500" })
-        }
     }
-}
+};
 
 export default controller;
