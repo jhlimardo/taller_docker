@@ -39,3 +39,21 @@ curl -X POST http://localhost:8080/v1/transaction/resources/assets  --header "Co
 
 -----
 Author Dimar Borda
+
+-----------------------------------------------------------------------------------------------------
+# Taller
+
+### Create a new User 
+curl -X POST http://localhost:8080/v1/auth/resources/users --header "Content-Type: application/json" --data '{ "email" : "test@email.com" , "name" : "Tatiana", "lastName": "Pachon", "password" : "123456"}'
+
+Author: Tatiana Pachon
+
+### Delete User 
+curl -X DELETE http://localhost:8080/v1/auth/resources/users/:id  --header "Content-Type: application/json"
+
+Author: Joseph
+
+### Create a new User 
+curl -X PUT http://localhost:8080/v1/auth/resources/users/:id  --header "Content-Type: application/json" --data '{ "email" : "test@email.com" , "name" : "Jose", "lastName": "Limardo", "password" : "123456"}'
+
+Author: Jose Limardo
